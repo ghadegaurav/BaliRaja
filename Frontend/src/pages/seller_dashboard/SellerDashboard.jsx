@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { notify } from "../../utils/helper/notification";
 import { useDispatch } from "react-redux";
 import SellerOverview from "./SellerOverview";
+import Detect from "../../components/Detect";
 
 
 const links = [
@@ -31,6 +32,12 @@ const links = [
     icon: <PiShoppingBagOpenFill />,
     renderComponent: <SellerOrderRequests />,
   },
+  {
+    text: "Detect",
+    icon: <PiShoppingBagOpenFill />,
+    renderComponent: <Detect />,
+  },
+
   {
     text: "Your FAQs",
     icon: <FaQq />,
