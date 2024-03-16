@@ -97,7 +97,7 @@ function SellerProducts() {
                   <th scope="col" className="px-6 whitespace-nowrap py-4">
                     Product Name
                   </th>
-                  <th scope="col" className="px-6 whitespace-nowrap  py-4">
+                  {/* <th scope="col" className="px-6 whitespace-nowrap  py-4">
                     Shelf Life
                   </th>
                   <th scope="col" className="px-6 whitespace-nowrap  py-4">
@@ -108,7 +108,7 @@ function SellerProducts() {
                   </th>
                   <th scope="col" className="px-6 py-4 whitespace-nowrap">
                     Minimum Order Quantity
-                  </th>
+                  </th> */}
                   <th scope="col" className="px-6 py-4 whitespace-nowrap">
                     Measuring Unit
                   </th>
@@ -118,6 +118,8 @@ function SellerProducts() {
                   <th scope="col" className="px-6 py-4">
                     Description
                   </th>
+                  <th>Sold</th> 
+                  <th>Pending</th>
                   <th scope="col" className="px-6 py-4 whitespace-nowrap">
                     Operation
                   </th>
@@ -135,7 +137,7 @@ function SellerProducts() {
                     </td>
                     <td className="px-6 py-4">{item.category}</td>
                     <td className="px-6 py-4">{item.name}</td>
-                    <td className="px-6 py-4">{item.shelfLife}</td>
+                    {/* <td className="px-6 py-4">{item.shelfLife}</td>
                     <td className="px-6 py-4">
                       {item.quantity} {item.measuringUnit}
                     </td>
@@ -152,7 +154,7 @@ function SellerProducts() {
                     </td>
                     <td className=" px-6 py-4 max-w-sm truncate hover:whitespace-normal">
                       {item.minimumOrderQuantity} {item.measuringUnit}
-                    </td>
+                    </td> */}
                     <td className=" px-6 py-4 max-w-sm truncate hover:whitespace-normal">
                       {item.measuringUnit}
                     </td>

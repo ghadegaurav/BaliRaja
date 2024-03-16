@@ -14,6 +14,8 @@ import ShowMap from "./pages/map/ShowMap";
 import { Analytics } from "@vercel/analytics/react"
 import ScrollToTop from "./components/scroll/ScrollToTop";
 import Footer from "./components/footer/Footer";
+import OsmMap from "./components/OsmMap";
+import Detect from "./components/Detect";
 
 
 function App() {
@@ -35,11 +37,13 @@ function App() {
           <Route exact path="/category/:type/details" element={<ProductDashboard/>} />
           <Route exact path="/orders" element={<Order/>} />
           <Route exact path="/map" element={<LeafletMap/>} />
+                    <Route exact path="/osm" element={<OsmMap/>} />
+                    <Route exact path="/detect" element={<Detect/>} />
         </Routes>
         </div>
       </Router>
-      <Footer/>
-      <Analytics/>
+      {/* <Footer/> */}
+      {/* <Analytics/> */}
     </>
   );
 }

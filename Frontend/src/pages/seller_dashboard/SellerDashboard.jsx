@@ -22,12 +22,12 @@ const links = [
     renderComponent: <SellerOverview />,
   },
   {
-    text: "Your Products",
+    text: "Marketplace",
     icon: <FaProductHunt />,
     renderComponent: <SellerProducts />,
   },
   {
-    text: "Your Orders",
+    text: "Complaints",
     icon: <PiShoppingBagOpenFill />,
     renderComponent: <SellerOrderRequests />,
   },
