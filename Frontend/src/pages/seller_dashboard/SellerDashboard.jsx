@@ -33,7 +33,7 @@ const links = [
     renderComponent: <SellerOrderRequests />,
   },
   {
-    text: "Detect",
+    text: "Scan Disease",
     icon: <PiShoppingBagOpenFill />,
     renderComponent: <Detect />,
   },
@@ -43,6 +43,13 @@ const links = [
     icon: <FaQq />,
     renderComponent: <SellerFAQs />,
   },
+  {
+    text: "Talk to Expert",
+    icon: <FaQq />,
+    renderComponent: <SellerFAQs />,
+  },
+
+
 ];
 
 const NewSellerDashboard = () => {

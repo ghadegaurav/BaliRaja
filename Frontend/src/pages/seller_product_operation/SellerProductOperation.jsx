@@ -263,7 +263,7 @@ function SellerProductOperation() {
                         </option>
                         <option value="rice">Rice</option>
                         <option value="wheat">Wheat</option>
-                        <option value="nuts">Nuts</option>
+                        <option value="pesticides">Pesticides</option>
                         <option value="sugar">Sugar</option>
                         <option value="spices">Spices</option>
                         <option value="fruits">Fruits</option>
