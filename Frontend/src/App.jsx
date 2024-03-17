@@ -15,6 +15,7 @@ import { Analytics } from "@vercel/analytics/react"
 import ScrollToTop from "./components/scroll/ScrollToTop";
 import Footer from "./components/footer/Footer";
 import OsmMap from "./components/OsmMap";
+import Chat from "./components/map/Chat";
 import Detect from "./components/Detect";
 
 
@@ -28,6 +29,7 @@ function App() {
         <div className="min-h-[calc(100vh-50px)]">
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/chat" element={<Chat/>} />
           <Route exact path="/account/:type" element={<LoginAndSignup />} />
           <Route exact path="/products" element={<Product />} />
           <Route exact path="/sellerdashboard" element={<SellerDashboard/>} />
@@ -42,7 +44,7 @@ function App() {
         </Routes>
         </div>
       </Router>
-      {/* <Footer/> */}
+      <Footer/>
       {/* <Analytics/> */}
     </>
   );

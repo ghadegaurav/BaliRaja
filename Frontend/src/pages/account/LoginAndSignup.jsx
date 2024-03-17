@@ -7,6 +7,44 @@ import { useDispatch } from "react-redux";
 import { addSellerData, addUserData } from "../../redux/actions";
 import { notify } from "../../utils/helper/notification";
 
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
+import 'firebase/compat/analytics';
+
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
+
+firebase.initializeApp({
+  apiKey: "AIzaSyDDGt4d7RYJ6o7PUQNEgRm_e6WFg-Fk_6s",
+  authDomain: "ace-chat-a02de.firebaseapp.com",
+  projectId: "ace-chat-a02de",
+  storageBucket: "ace-chat-a02de.appspot.com",
+  messagingSenderId: "984684227944",
+  appId: "1:984684227944:web:51ebde28d89d6191bb3add",
+  measurementId: "G-CPJ2Z6N2X0"
+})
+
+const auth = firebase.auth();
+const firestore = firebase.firestore();
+const analytics = firebase.analytics();
+
+function SignIn() {
+
+  const signInWithGoogle = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider);
+  }
+
+  return (
+    <>
+      <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
+      <p>Do not violate the community guidelines or you will be banned for life!</p>
+    </>
+  )
+
+}
+
 function LoginAndSignup() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -94,20 +132,18 @@ function LoginAndSignup() {
   return (
     <section className="w-full flex flex-row h-screen">
       <div
-        className={`w-full md:w-1/2 overflow-y-auto duration-300 ease-linear transition ${
-          signIn ? "" : "md:translate-x-full"
-        }`}
+        className={`w-full md:w-1/2 overflow-y-auto duration-300 ease-linear transition ${signIn ? "" : "md:translate-x-full"
+          }`}
       >
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="mx-auto border-2 rounded-md">
             <button
-              className={`rounded-l-md  ${
-                signIn
-                  ? type === "seller"
-                    ? "bg-green-600 hover:bg-green-500 text-white"
-                    : "bg-blue-600 hover:bg-blue-500 text-white"
-                  : "text-black hover:bg-gray-100"
-              }  px-6 py-1.5 text-sm font-semibold leading-6 shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
+              className={`rounded-l-md  ${signIn
+                ? type === "seller"
+                  ? "bg-green-600 hover:bg-green-500 text-white"
+                  : "bg-blue-600 hover:bg-blue-500 text-white"
+                : "text-black hover:bg-gray-100"
+                }  px-6 py-1.5 text-sm font-semibold leading-6 shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
               onClick={() => {
                 setSignIn(true);
                 setShowOTPSection(false);
@@ -116,13 +152,12 @@ function LoginAndSignup() {
               SignIn
             </button>
             <button
-              className={`rounded-r-md  ${
-                signIn
-                  ? "text-black hover:bg-gray-100"
-                  : type === "seller"
+              className={`rounded-r-md  ${signIn
+                ? "text-black hover:bg-gray-100"
+                : type === "seller"
                   ? "bg-green-600 hover:bg-green-500 text-white"
                   : "bg-blue-600 hover:bg-blue-500 text-white"
-              }  px-6 py-1.5 text-sm font-semibold leading-6 shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
+                }  px-6 py-1.5 text-sm font-semibold leading-6 shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600`}
               onClick={() => setSignIn(false)}
             >
               SignUp
@@ -132,9 +167,8 @@ function LoginAndSignup() {
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
               {signIn ? "Sign In" : "Sign Up"} to{" "}
               <span
-                className={`${
-                  type === "seller" ? "text-green-600" : "text-blue-600"
-                }`}
+                className={`${type === "seller" ? "text-green-600" : "text-blue-600"
+                  }`}
               >
                 {type === "user" ? "User" : "Seller"}
               </span>{" "}
@@ -171,11 +205,10 @@ function LoginAndSignup() {
                       value={name}
                       {...(!signIn ? { required: true } : {})}
                       onChange={(e) => setName(e.target.value)}
-                      className={`block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset ${
-                        type === "seller"
-                          ? "focus:ring-green-600"
-                          : "focus:ring-blue-600"
-                      } sm:text-sm sm:leading-6`}
+                      className={`block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset ${type === "seller"
+                        ? "focus:ring-green-600"
+                        : "focus:ring-blue-600"
+                        } sm:text-sm sm:leading-6`}
                     />
                   </div>
                 </div>
@@ -213,11 +246,10 @@ function LoginAndSignup() {
                       pattern="^\d{10}$"
                       onChange={(e) => setPhoneNo(e.target.value)}
                       {...(!signIn ? { required: true } : {})}
-                      className={`block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset ${
-                        type === "seller"
-                          ? "focus:ring-green-600"
-                          : "focus:ring-blue-600"
-                      } sm:text-sm sm:leading-6`}
+                      className={`block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset ${type === "seller"
+                        ? "focus:ring-green-600"
+                        : "focus:ring-blue-600"
+                        } sm:text-sm sm:leading-6`}
                     />
                   </div>
                 </div>
@@ -235,11 +267,10 @@ function LoginAndSignup() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
-                      className={`block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset ${
-                        type === "seller"
-                          ? "focus:ring-green-600"
-                          : "focus:ring-blue-600"
-                      } sm:text-sm sm:leading-6`}
+                      className={`block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset ${type === "seller"
+                        ? "focus:ring-green-600"
+                        : "focus:ring-blue-600"
+                        } sm:text-sm sm:leading-6`}
                     />
                   </div>
                 </div>
@@ -271,23 +302,22 @@ function LoginAndSignup() {
                       required
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className={`block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset ${
-                        type === "seller"
-                          ? "focus:ring-green-600"
-                          : "focus:ring-blue-600"
-                      } sm:text-sm sm:leading-6`}
+                      className={`block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset ${type === "seller"
+                        ? "focus:ring-green-600"
+                        : "focus:ring-blue-600"
+                        } sm:text-sm sm:leading-6`}
                     />
                   </div>
                 </div>
 
                 <div>
+                  <SignIn />
                   <button
                     type="submit"
-                    className={`flex w-full justify-center rounded-md ${
-                      type === "seller"
-                        ? `bg-green-600 hover:bg-green-500 focus-visible:outline-green-600`
-                        : `bg-blue-600 hover:bg-blue-500 focus-visible:outline-blue-600`
-                    }  px-3 py-1.5 text-sm 
+                    className={`flex w-full justify-center rounded-md ${type === "seller"
+                      ? `bg-green-600 hover:bg-green-500 focus-visible:outline-green-600`
+                      : `bg-blue-600 hover:bg-blue-500 focus-visible:outline-blue-600`
+                      }  px-3 py-1.5 text-sm 
                   font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 items-center`}
                   >
                     {isLoading ? (
@@ -295,7 +325,7 @@ function LoginAndSignup() {
                     ) : signIn ? (
                       "Sign In"
                     ) : (
-                      "Sign Up" 
+                      "Sign Up"
                       // "Send OTP"
                     )}
                   </button>
@@ -326,11 +356,10 @@ function LoginAndSignup() {
                       value={otp}
                       onChange={(e) => setOTP(e.target.value)}
                       {...(!signIn ? { required: true } : {})}
-                      className={`block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset ${
-                        type === "seller"
-                          ? "focus:ring-green-600"
-                          : "focus:ring-blue-600"
-                      } sm:text-sm sm:leading-6`}
+                      className={`block w-full px-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset ${type === "seller"
+                        ? "focus:ring-green-600"
+                        : "focus:ring-blue-600"
+                        } sm:text-sm sm:leading-6`}
                     />
                   </div>
                 </div>
@@ -338,11 +367,10 @@ function LoginAndSignup() {
                 <div>
                   <button
                     type="submit"
-                    className={`flex w-full justify-center rounded-md ${
-                      type === "seller"
-                        ? `bg-green-600 hover:bg-green-500 focus-visible:outline-green-600`
-                        : `bg-blue-600 hover:bg-blue-500 focus-visible:outline-blue-600`
-                    }  px-3 py-1.5 text-sm 
+                    className={`flex w-full justify-center rounded-md ${type === "seller"
+                      ? `bg-green-600 hover:bg-green-500 focus-visible:outline-green-600`
+                      : `bg-blue-600 hover:bg-blue-500 focus-visible:outline-blue-600`
+                      }  px-3 py-1.5 text-sm 
                   font-semibold leading-6 text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 items-center`}
                   >
                     {isLoading ? (
@@ -360,33 +388,28 @@ function LoginAndSignup() {
         </div>
       </div>
       <div
-        className={`hidden md:block md:w-1/2 relative duration-300 ease-linear transition  ${
-          signIn ? "" : "-translate-x-full"
-        }`}
+        className={`hidden md:block md:w-1/2 relative duration-300 ease-linear transition  ${signIn ? "" : "-translate-x-full"
+          }`}
       >
         <div
-          className={`h-full w-4 absolute left-0 ${
-            type === "seller" ? "bg-green-600" : "bg-blue-600"
-          }  z-40`}
+          className={`h-full w-4 absolute left-0 ${type === "seller" ? "bg-green-600" : "bg-blue-600"
+            }  z-40`}
         ></div>
         <div
-          className={`h-full w-4 absolute right-0 ${
-            type === "seller" ? "bg-green-600" : "bg-blue-600"
-          } z-40`}
+          className={`h-full w-4 absolute right-0 ${type === "seller" ? "bg-green-600" : "bg-blue-600"
+            } z-40`}
         ></div>
         <div
-          className={`h-4 w-full absolute top-0 ${
-            type === "seller" ? "bg-green-600" : "bg-blue-600"
-          } z-40`}
+          className={`h-4 w-full absolute top-0 ${type === "seller" ? "bg-green-600" : "bg-blue-600"
+            } z-40`}
         ></div>
         <div
-          className={`h-4 w-full absolute bottom-0 ${
-            type === "seller" ? "bg-green-600" : "bg-blue-600"
-          } z-40`}
+          className={`h-4 w-full absolute bottom-0 ${type === "seller" ? "bg-green-600" : "bg-blue-600"
+            } z-40`}
         ></div>
         <img
           className="mx-auto w-full h-full"
-          src="https://source.unsplash.com/random/?farms"
+          src="https://source.unsplash.com/random/?indianfarmer"
           alt="Your Company"
         />
         <div className="absolute top-0 left-0 z-40 bottom-0 right-0 sm:bg-transparent sm:bg-gradient-to-r sm:from-black/25 sm:to-black/25"></div>

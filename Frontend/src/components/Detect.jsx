@@ -109,23 +109,23 @@ export default function Detect() {
         <FileUploader handleChange={handleChange} name="file" types={fileTypes} />
         <div className={detectcss.showimg}>
           {fileData && <img src={fileData} alt="Uploaded" />}</div>
-        <button onClick={handleDetectClick}>Detect Diseases</button>
-        <h4 onClick={run} className={detectcss.invisible}>GenAI</h4>
+        <button onClick={handleDetectClick} className={detectcss.btn1}>Detect Diseases</button>
+        <h4 onClick={run} className={`${detectcss.invisible} ${detectcss.btn1}`}>Get Cures with AI</h4>
         {showLoading && !detectionResult && (<div className={detectcss.loader}></div>)}
         {detectionResult && (
           <div className={detectcss.results}>
             <h3>Detection Result:</h3>
-            {/* <pre>{JSON.stringify(detectionResult, null, 2)}</pre> */}
-            <p>{detectionResult.predictions[0].class}</p>
+            {/* <pre>{JSON.stringify(detectionResult, null, 2)}</pre>/ */}
+            <p>{detectionResult.predictions.length >= 1 ? (detectionResult.predictions[0].class) : 'No disease detected'}</p>
 
 
-            {showLoading && !geminiDisc && (<div className={detectcss.loader}></div>)}
             <div className={accorcss.accordion}>
               <div className={`${accorcss['accordion-item']} ${openAcc ? accorcss.open : ''} flexverti`}>
                 <div className={`${accorcss.title} flexhori`} onClick={() => { setOpenAcc(!openAcc) }}>
                   Description of Disease
                   {openAcc ? <i className="ri-arrow-drop-up-line"></i> : <i className="ri-arrow-drop-down-line"></i>}
                 </div>
+                {showLoading && !geminiDisc && detectionResult.predictions.length >= 1 ? (<div className={detectcss.loader}></div>) : ""}
                 <div className={accorcss.content}>
                   {/* {openItems.includes(index) && item.content} */}
                   {geminiDisc && (<Markdown>{geminiDisc}</Markdown>)}

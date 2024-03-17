@@ -17,7 +17,7 @@ const order = require("./routes/order");
 const faq = require("./routes/faq");
 const graph = require("./routes/graph.js")
 
-const PORT = 8080;
+const PORT = 8000;
 const app = express();
 
 app.use(cors());

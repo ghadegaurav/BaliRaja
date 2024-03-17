@@ -10,7 +10,7 @@ import {
 import "leaflet/dist/leaflet.css";
 import { GeoSearchControl, OpenStreetMapProvider } from "leaflet-geosearch";
 import "./../../../node_modules/leaflet-geosearch/dist/geosearch.css";
-import L from "leaflet";
+// import L from "leaflet";
 import pin from './../../assets/pin.png'
 
 function LeafletMap({

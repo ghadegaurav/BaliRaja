@@ -51,8 +51,8 @@ function Navbar() {
       <div className="flex flex-wrap items-center justify-between mx-auto px-4 md:px-12 h-12">
         <a href="/" className="flex items-center">
           <span className="text-xl md:text-2xl font-medium whitespace-nowrap">
-            <span className="text-red-500 font-bold">K</span>isaan
-            <span className="text-red-500 font-bold">M</span>itra
+            <span className="text-red-500 font-bold"></span>Bali
+            <span className="text-red-500 font-bold">Raja</span>
           </span>
         </a>
         <div className="flex flex-row gap-4 md:gap-8 text-2xl md:text-3xl">
@@ -73,9 +73,8 @@ function Navbar() {
             <span className="text-sm font-medium hidden md:block">User</span>
             {userData && (
               <div
-                className={`absolute ${
-                  showUserDropdown ? "block" : "hidden"
-                } top-8 right-0 z-10 font-medium bg-white rounded-lg shadow-md pl-1 md:pl-4 pr-2 md:pr-8 py-0 md:py-2`}
+                className={`absolute ${showUserDropdown ? "block" : "hidden"
+                  } top-8 right-0 z-10 font-medium bg-white rounded-lg shadow-md pl-1 md:pl-4 pr-2 md:pr-8 py-0 md:py-2`}
               >
                 <ul className="py-1 md:py-2 flex flex-col text-sm gap-2 text-gray-700 ">
                   <li
@@ -110,9 +109,8 @@ function Navbar() {
             <span className="text-sm font-medium hidden md:block">Seller</span>
             {sellerData && (
               <div
-                className={`absolute ${
-                  showSellerDropdown ? "block" : "hidden"
-                } top-8 right-0 z-10 font-medium bg-white rounded-lg shadow-md pl-1 md:pl-4 pr-2 md:pr-8 py-0 md:py-2`}
+                className={`absolute ${showSellerDropdown ? "block" : "hidden"
+                  } top-8 right-0 z-10 font-medium bg-white rounded-lg shadow-md pl-1 md:pl-4 pr-2 md:pr-8 py-0 md:py-2`}
               >
                 <ul className="py-2 flex flex-col text-sm gap-2 text-gray-700 ">
                   <li

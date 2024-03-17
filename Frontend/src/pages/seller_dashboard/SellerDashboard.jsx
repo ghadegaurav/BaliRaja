@@ -14,6 +14,8 @@ import { notify } from "../../utils/helper/notification";
 import { useDispatch } from "react-redux";
 import SellerOverview from "./SellerOverview";
 import Detect from "../../components/Detect";
+import MapPage from "../Maps/MapPage";
+import Experts from "../../components/Experts";
 
 
 const links = [
@@ -21,6 +23,12 @@ const links = [
     text: "Dashboard",
     icon: <MdDashboard />,
     renderComponent: <SellerOverview />,
+  },
+  
+  {
+    text: "Map",
+    // icon: <MapPage />,
+    renderComponent: <MapPage />,
   },
   {
     text: "Marketplace",
@@ -46,7 +54,7 @@ const links = [
   {
     text: "Talk to Expert",
     icon: <FaQq />,
-    renderComponent: <SellerFAQs />,
+    renderComponent: <Experts />,
   },
 
 
@@ -54,10 +62,10 @@ const links = [
 
 const NewSellerDashboard = () => {
   const navigate = useNavigate();
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const [selected, setSelected] = useState(0);
-  
+
 
   return (
     <div className="w-full flex flex-row h-[calc(100vh-50px)]">
@@ -65,7 +73,7 @@ const dispatch = useDispatch();
         <div className="flex flex-col gap-2">
           {links.map((link, index) => (
             <NavItem
-            key={index}
+              key={index}
               text={link.text}
               icon={link.icon}
               isSelected={selected === index}

@@ -9,7 +9,25 @@ import EmptyStateText from "../../components/empty_state/EmptyStateText";
 import Heading from "../../components/heading/Heading";
 import { useSelector } from "react-redux";
 
+import logincss from './complaint.module.scss';
+
 function SellerOrderRequests() {
+  const btnstyles = {
+    width: '100px',
+    padding: '10px 15px',
+    backgroundColor: 'rgb(179, 0, 0)',
+    color: 'white',
+    fontWeight: '700',
+    fontSize: '1rem',
+    border: 'none',
+    borderRadius: '$borderRadius', // Note: $borderRadius needs to be defined elsewhere
+    cursor: 'pointer',
+    transition: 'all 0.1s ease',
+    '&:active': {
+      transform: 'scale(0.97)',
+    }
+  };
+
   const [data, setData] = useState([]);
   const navigate = useNavigate();
 
@@ -33,16 +51,16 @@ function SellerOrderRequests() {
   return (
     <>
       {/* Table Header */}
-      <Heading text={"All Orders"} textAlign="text-left"/>
-      <div className="w-full flex flex-col gap-2 md:flex-row items-center justify-between px-4">
-        <div className="mt-1 relative w-full  md:w-96">
-          <input
-            type="text"
-            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
-            placeholder="Search for products"
-          />
-        </div>
-      </div>
+      {/* <Heading text={"All Orders"} textAlign="text-left"/>
+        <div className="w-full flex flex-col gap-2 md:flex-row items-center justify-between px-4">
+          <div className="mt-1 relative w-full  md:w-96">
+            <input
+              type="text"
+              className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-cyan-600 focus:border-cyan-600 block w-full p-2.5"
+              placeholder="Search for products"
+            />
+          </div>
+        </div> */}
 
       {/* Table */}
       <div className="flex flex-col overflow-x-auto w-full">
@@ -50,7 +68,7 @@ function SellerOrderRequests() {
           {isDataFetching ? (
             <TableSkeleton />
           ) : data.length === 0 ? (
-            <EmptyStateText text="It seems like your order request queue is currently empty. No worries, though! Keep an eye out for incoming orders—they'll pop up right here in your dashboard." />
+            <EmptyStateText text="" />
           ) : (
             <table className="text-center text-sm font-light w-full">
               <thead className="border-b font-medium bg-gray-100">
@@ -62,7 +80,7 @@ function SellerOrderRequests() {
                     Image
                   </th>
                   <th scope="col" className="px-6 whitespace-nowrap py-4">
-                  Category
+                    Category
                   </th>
                   <th scope="col" className="px-6 whitespace-nowrap py-4">
                     Product Name
@@ -92,7 +110,7 @@ function SellerOrderRequests() {
                     Status
                   </th>
                 </tr>
-              </thead>
+              </thead >
               <tbody>
                 {data.map((item, index) => (
                   <tr
@@ -141,8 +159,44 @@ function SellerOrderRequests() {
                   </tr>
                 ))}
               </tbody>
-            </table>
-          )}
+            </table >
+          )
+          }
+        </div >
+      </div >
+      <div className={logincss.container}>
+        <div className={logincss.card}>
+          <h2 className={logincss.heading}>Having any problems? Raising Voice always Helps!!</h2>
+          <form >
+            <div className={logincss.row}>
+              <input type="text" name="firstName" placeholder='Enter First Name' />
+              <input type="text" name="lastName" placeholder='Enter Last Name' />
+            </div>
+            <div className={logincss.row}>
+              <input type="text" name="email" placeholder='Enter Email Address' />
+            </div>
+            <div className={logincss.row} style={{ justifyContent: "start" }}>
+              <input type="text" placeholder='+1' style={{
+                width: "50px", flexShrink: 0, textAlign: "center"
+              }} />
+              <input type="number" name="phoneNumber" placeholder='00000  00000' style={{
+                maxWidth: "200px", flexShrink: 0
+              }} />
+            </div>
+            <div className={logincss.row}>
+              <input type="text" name="againstWhom" placeholder='Against Whom?' />
+              <input type="text" name="complaintSubject" placeholder='Complaint Subject' />
+            </div>
+
+            <div className={logincss.row}>
+              <textarea name="complaintDetails" placeholder='Explain your inconvenience in detail... '></textarea>
+            </div>
+            <div className={logincss.cardfooter}>
+              <div className={logincss.row} style={{ justifyContent: "space-between" }}>
+                <button type="submit" className={logincss.btn1} style={btnstyles}>Submit</button>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </>
