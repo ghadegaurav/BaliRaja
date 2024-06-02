@@ -106,7 +106,7 @@ function Navbar() {
             }}
           >
             <SiSellfy />
-            <span className="text-sm font-medium hidden md:block">Seller</span>
+            <span className="text-sm font-medium hidden md:block">Farmer</span>
             {sellerData && (
               <div
                 className={`absolute ${showSellerDropdown ? "block" : "hidden"
@@ -115,11 +115,11 @@ function Navbar() {
                 <ul className="py-2 flex flex-col text-sm gap-2 text-gray-700 ">
                   <li
                     onClick={() => {
-                      navigate("/sellerdashboard");
+                      navigate("/farmerdashboard");
                     }}
                   >
                     <a className="block px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0  whitespace-nowrap">
-                      Seller Dashboard
+                      Farmer Dashboard
                     </a>
                   </li>
                   <li
@@ -130,7 +130,7 @@ function Navbar() {
                     }}
                   >
                     <a className="block px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-700 md:p-0  whitespace-nowrap">
-                      Seller Logout
+                      Farmer Logout
                     </a>
                   </li>
                 </ul>

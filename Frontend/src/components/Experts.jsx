@@ -10,13 +10,13 @@ const Experts = () => {
         <img className='profileimg' src={profileimg} alt="" />
         <h2>Ninad Naik - (BSC Agri) </h2><p>Crop Pesticide Expert</p>
 
-        <button className="meetbtn" onClick={() => { }}><Link to="http://192.168.137.1:3000/" className="m-2">Talk with Ninad Naik</Link></button>
+        <button className="meetbtn" onClick={() => { }}><Link to="http://192.168.138.51:3000/" className="m-2">Talk with Ninad Naik</Link></button>
       </div>
       <div className='expert'>
         <img className='profileimg' src={profileimg} alt="" />
         <h2>Dr. Vandana Shiva </h2><p>Environmental Activist and Author</p>
 
-        <button className="meetbtn" onClick={() => { }}><Link to="http://192.168.137.1:3000/" className="m-2">Talk with Dr. Vandana Shiva</Link></button>
+        <button className="meetbtn" onClick={() => { }}><Link to="http://192.168.138.51:3000/" className="m-2">Talk with Dr. Vandana Shiva</Link></button>
       </div>
       <div className='expert'>
         <img className='profileimg' src={profileimg} alt="" />

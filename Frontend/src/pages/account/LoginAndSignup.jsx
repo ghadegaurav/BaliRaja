@@ -92,7 +92,7 @@ function LoginAndSignup() {
         let sellerData = await postAPI("seller/login", { email, password });
         if (sellerData.isLoggedIn) {
           dispatch(addSellerData(sellerData.sellerData));
-          navigate('/sellerdashboard');
+          navigate('/farmerdashboard');
         }
       } else {
         // await postAPI(`seller/signup?otp=${otp}`, {

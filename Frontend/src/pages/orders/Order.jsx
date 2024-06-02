@@ -9,6 +9,7 @@ import getCurrentDateTime from "../../utils/helper/getCurrentDateTime";
 import LeafletMap from "../../components/map/LeafletMap";
 import Spinner from "../../components/loading/Spinner";
 import Heading from "../../components/heading/Heading";
+import { Link, redirect } from "react-router-dom";
 
 function Order() {
   const dispatch = useDispatch();
@@ -90,7 +91,7 @@ function Order() {
     <>
       <div className="py-14 px-4 md:px-6 2xl:px-20 2xl:container 2xl:mx-auto">
         <div className="flex justify-start item-start space-y-1 md:space-y-2 flex-col">
-          <Heading text="Your Order" textAlign="text-left" marginY="my-0" paddingX="px-0"/>
+          <Heading text="Your Order" textAlign="text-left" marginY="my-0" paddingX="px-0" />
           <p className="text-sm md:text-base  font-medium leading-6 text-gray-600">
             {getCurrentDateTime()}
           </p>
@@ -175,7 +176,7 @@ function Order() {
                     </div>
                     <div className="flex flex-col justify-start items-center">
                       <p className="text-lg leading-6  font-semibold text-gray-800">
-                        CropConnect
+
                         <br />
                         <span className="font-normal">
                           Delivery within 24 Hours
@@ -193,14 +194,17 @@ function Order() {
                   </p>
                 </div>
                 <div className="w-full flex justify-center items-center">
-                  <button
+                  <Link to='https://pages.razorpay.com/pl_NnPNeRh0jFU0ks/view'><button
                     className="hover:bg-black    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 py-5 w-96 md:w-full bg-gray-800 text-base font-medium leading-4 text-white flex flex-row justify-center items-center"
                     onClick={() => {
-                      if (cartData.length === 0) {
-                        notify("First add some items to cart", "info");
-                      } else {
-                        orderNow();
-                      }
+                      // if (cartData.length === 0) {
+                      //   notify("First add some items to cart", "info");
+                      // } else {
+                      // orderNow();
+                      console.log("Hello")
+                      // redirect("https://pages.razorpay.com/pl_NnPNeRh0jFU0ks/view")
+                      // <Link>"https://pages.razorpay.com/pl_NnPNeRh0jFU0ks/view"</Link>
+                      // }
                     }}
                   >
                     {isPaymentInitiated && (
@@ -211,6 +215,7 @@ function Order() {
                     )}
                     Pay Now
                   </button>
+                  </Link>
                 </div>
               </div>
             </div>

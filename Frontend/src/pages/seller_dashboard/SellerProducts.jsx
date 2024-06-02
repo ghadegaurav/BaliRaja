@@ -59,7 +59,7 @@ function SellerProducts() {
   return (
     <>
       {/* Table Header */}
-      <Heading text={"Your Products"} textAlign="text-left"/>
+      <Heading text={"Your Products"} textAlign="text-left" />
       <div className="w-full flex flex-col gap-2 md:flex-row items-center justify-between px-4">
         <div className="mt-1 relative w-full  md:w-96">
           <input
@@ -118,8 +118,8 @@ function SellerProducts() {
                   <th scope="col" className="px-6 py-4">
                     Description
                   </th>
-                  <th>Sold</th> 
-                  <th>Pending</th>
+                  {/* <th>Sold</th> 
+                  <th>Pending</th> */}
                   <th scope="col" className="px-6 py-4 whitespace-nowrap">
                     Operation
                   </th>
@@ -166,6 +166,21 @@ function SellerProducts() {
                     </td>
                     <td className=" px-6 py-4">
                       <span className=" flex justify-center items-center gap-2">
+                        <div
+                          className="text-md py-2 px-4 text-white rounded cursor-pointer bg-sky-700  whitespace-nowrap"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            // dispatch(editProductDetails(item));
+                            // navigate(`product/edit`);
+
+                          }}
+                        >
+                          <Link to='http://192.168.138.51:3000/' onClick={console.log("Pressed")}>
+                            <span className="font-medium">
+                              Bid
+                            </span>
+                          </Link>
+                        </div>
                         <div
                           className="text-md py-2 px-4 text-white rounded cursor-pointer bg-sky-700  whitespace-nowrap"
                           onClick={(e) => {

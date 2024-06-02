@@ -134,10 +134,10 @@ function SellerProductOperation() {
           notify("Something went wrong", "error");
         } finally {
           setLoading(false);
-          navigate("/sellerdashboard");
+          navigate("/farmerdashboard");
         }
       }
-      else{
+      else {
         setLoading(false);
       }
     } else {

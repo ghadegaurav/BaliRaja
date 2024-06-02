@@ -24,10 +24,11 @@ const links = [
     icon: <MdDashboard />,
     renderComponent: <SellerOverview />,
   },
-  
+
   {
     text: "Map",
     // icon: <MapPage />,
+    icon: <FaQq />,
     renderComponent: <MapPage />,
   },
   {
@@ -46,11 +47,11 @@ const links = [
     renderComponent: <Detect />,
   },
 
-  {
-    text: "Your FAQs",
-    icon: <FaQq />,
-    renderComponent: <SellerFAQs />,
-  },
+  // {
+  //   text: "Your FAQs",
+  //   icon: <FaQq />,
+  //   renderComponent: <SellerFAQs />,
+  // },
   {
     text: "Talk to Expert",
     icon: <FaQq />,

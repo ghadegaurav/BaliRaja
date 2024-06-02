@@ -176,7 +176,7 @@ function SellerOrderRequests() {
               <input type="text" name="email" placeholder='Enter Email Address' />
             </div>
             <div className={logincss.row} style={{ justifyContent: "start" }}>
-              <input type="text" placeholder='+1' style={{
+              <input type="text" placeholder='+91' style={{
                 width: "50px", flexShrink: 0, textAlign: "center"
               }} />
               <input type="number" name="phoneNumber" placeholder='00000  00000' style={{

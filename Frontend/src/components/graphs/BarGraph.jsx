@@ -1,15 +1,17 @@
+
+
 // import React from "react";
-import {
-  BarChart,
-  Bar,
-  Rectangle,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
+// import {
+//   BarChart,
+//   Bar,
+//   Rectangle,
+//   XAxis,
+//   YAxis,
+//   CartesianGrid,
+//   Tooltip,
+//   Legend,
+//   ResponsiveContainer,
+// } from "recharts";
 // import { captializeFirstLetter } from "../../utils/helper/captializeFirstLetter";
 
 // const BarGraph = ({ data, color, xKey, yKey, title = "Graph Title" }) => {
@@ -46,6 +48,9 @@ import {
 
 
 
+
+
+
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { AgChartsReact } from 'ag-charts-react';
@@ -56,16 +61,16 @@ const ChartExample = () => {
   const [chartOptions, setChartOptions] = useState({
     // Data: Data to be displayed in the chart
     data: [
-        { month: 'Jan', avgTemp: 2.3, Sales: 162000 },
-        { month: 'Mar', avgTemp: 6.3, Sales: 302000 },
-        { month: 'May', avgTemp: 16.2, Sales: 800000 },
-        { month: 'Jul', avgTemp: 22.8, Sales: 1254000 },
-        { month: 'Sep', avgTemp: 14.5, Sales: 950000 },
-        { month: 'Nov', avgTemp: 8.9, Sales: 200000 },
+      { food: 'wheat', avgTemp: 2.3, Sales: 5420 },
+      { food: 'rice', avgTemp: 6.3, Sales: 3760 },
+      { food: 'potato', avgTemp: 16.2, Sales: 9530 },
+      { food: 'onion', avgTemp: 22.8, Sales: 19740 },
+      { food: 'cabbage', avgTemp: 14.5, Sales: 9600 },
+      { food: 'sugarcane', avgTemp: 8.9, Sales: 1870 },
     ],
     // Series: Defines which chart type and data to use
-    series: [{ type: 'bar', xKey: 'month', yKey: 'Sales' }],
-    
+
+    series: [{ type: 'bar', xKey: 'food', yKey: 'Sales' }],
   });
 
   return (
@@ -78,3 +83,8 @@ const ChartExample = () => {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<ChartExample />);
 export default ChartExample;
+
+
+
+
+
