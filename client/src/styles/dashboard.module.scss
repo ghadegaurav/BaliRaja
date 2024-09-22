@@ -1,0 +1,17 @@
+@use '_sizes' as sizes;
+
+.container{
+    flex-direction: column;
+    height: 100vh;
+    // margin-inline:150px;
+}
+.mainbody{
+    flex-grow: 1;
+    .middle{
+        flex-grow: 1;
+        // max-height: 100vh;
+        height: 100%;
+        width: 100%;
+        // border: blue solid 1px;
+    }
+}

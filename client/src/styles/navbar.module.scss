@@ -1,0 +1,42 @@
+@use '_sizes' as sizes;
+
+.dashnav{
+    max-width: 100vw;
+    height: sizes.$navheight;
+    // border: red 0.5px solid;
+    border-bottom: 1px solid #AAA;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 20px;
+}
+.logo{
+    img{
+        width: 100px;
+    }
+}
+.searchbar{
+    input{
+        border: none;
+        border-bottom: rgb(202, 202, 202) 1px solid;
+        border-radius: 1px;
+        height: 30px;
+        width: 200px;
+        padding-left: 5px;
+        font-size: 1rem;
+    }
+    & :focus{
+        outline: none;
+    }
+    i{
+        font-size: 1.5vw;
+    }
+}
+.notiicon{
+    border-left: grey 2px solid;
+    height: 50%;
+    align-items: center;
+    padding-inline: 15px;
+    i{
+        font-size: 1.5vw;
+    }
+}

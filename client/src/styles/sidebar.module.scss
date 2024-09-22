@@ -1,0 +1,67 @@
+@use "_sizes" as sizes;
+@use "_colors" as colors;
+
+.container {
+  align-items: center;
+  background-image: url("../assets/ssspiral.svg");
+  // background-size: 100px;
+  // background-color: #22215a;
+  // color: #FFF;
+  color: #444;
+  min-width: 20%;
+  width: sizes.$sidewidth;
+  // height: calc(100vh - sizes.$navheight);
+  border-right: 1px solid #555;
+  img {
+    width: sizes.$profileimgsize;
+    height: sizes.$profileimgsize;
+    margin-top: 20px;
+  }
+
+  .profileinfo {
+    align-items: center;
+  }
+
+  .navlist {
+    font-size: 1.05rem;
+    margin-top: 40px;
+    gap: 10px;
+    width: 100%;
+    &:focus {
+      outline: none;
+    }
+    text-align: center;
+    align-items: center;
+    li {
+      display: flex;
+      height: 45px;
+      width: 80%;
+      cursor: pointer;
+      &:hover{
+        @extend .active;
+      }
+      a{
+        justify-content: center;
+        align-items: center;
+        width: 100%; 
+      }
+    }
+  }
+}
+.active {
+  // background-color: rgba(85, 169, 248, 0.151);
+  // color: colors.$primaryblue;
+  color: #FFF;
+  background-color: colors.$primaryblue;
+  // background-color: wheat;
+  border-radius: 4px;
+  > a {
+    font-weight: 900;
+  }
+}
+
+@media only screen and (max-width: 768px)  {
+  .container{
+    display: none;
+  }
+}
