@@ -15,7 +15,6 @@ Farmer Buddy is an online marketplace designed to connect farmers directly with 
 
 - **User Authentication**: Secure login and registration for farmers and consumers.
 - **Product Listings**: Farmers can add, edit, and delete their products, including images, prices, and descriptions.
-- **Search & Filters**: Consumers can search for specific products or filter by category.
 - **Cart & Checkout**: A smooth shopping cart experience for consumers with an easy checkout process.
 - **Order History**: Both farmers and consumers can view their past transactions and orders.
 - **Responsive Design**: Works seamlessly on desktop and mobile devices.
