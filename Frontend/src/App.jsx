@@ -11,12 +11,14 @@ import Order from "./pages/orders/Order";
 import LeafletMap from "./components/map/LeafletMap";
 import SellerProductOperation from "./pages/seller_product_operation/SellerProductOperation";
 import ShowMap from "./pages/map/ShowMap";
+// import ShowMap from "./pages/map/ShowMap";
 import { Analytics } from "@vercel/analytics/react"
 import ScrollToTop from "./components/scroll/ScrollToTop";
 import Footer from "./components/footer/Footer";
 import OsmMap from "./components/OsmMap";
 import Chat from "./components/map/Chat";
 import Detect from "./components/Detect";
+// import Detect from "./components/Detect";
 
 
 function App() {
@@ -30,6 +32,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/chat" element={<Chat />} />
+            {/* <Route exact path="/chat" element={<Chat />} /> */}
             <Route exact path="/account/:type" element={<LoginAndSignup />} />
             <Route exact path="/products" element={<Product />} />
             <Route exact path="/farmerdashboard" element={<SellerDashboard />} />
@@ -40,6 +43,7 @@ function App() {
             <Route exact path="/orders" element={<Order />} />
             <Route exact path="/map" element={<LeafletMap />} />
             <Route exact path="/osm" element={<OsmMap />} />
+            {/* <Route exact path="/osm" element={<OsmMap />} /> */}
             <Route exact path="/detect" element={<Detect />} />
           </Routes>
         </div>
