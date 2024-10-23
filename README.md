@@ -40,8 +40,8 @@ Follow the steps below to get the project up and running locally.
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/farmer-buddy-marketplace.git
-   cd farmer-buddy-marketplace
+   git clone https://github.com/ghadegaurav/BaliRaja.git
+   cd BaliRaja
    ```
 
 2. **Install dependencies:**
