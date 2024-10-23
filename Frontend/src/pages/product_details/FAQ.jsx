@@ -47,7 +47,7 @@ function FAQ() {
             {isDataFetching ? (
               <FAQSkeleton />
             ) : reviewData.length === 0 ? (
-              <EmptyStateText text="No FAQs yet! Have a question about this product? Be the first to ask! Your inquiry could help others too. Start the conversation now!" />
+              <EmptyStateText text="No FAQs yet! Have a question about this product? Be the first person to ask! Your inquiry could help others too. Start the conversation now!" />
             ) : (
               <div className="grid lg:grid-cols-3 gap-4 md:gap-x-6 md:gap-y-12">
                 {reviewData.map((data) => (
